@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FV Website</title>
+    <link href="https://example.com:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1E1E1E;
+            color: white;
+        }
+
+        header {
+            background-color: #FF1801;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background-image: url('Just blank');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #2C2C2C;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        footer {
+            background-color: #121212;
+            padding: 20px 0;
+            text-align: center;
+            color: #ccc;
+        }
+
+        footer a {
+            color: #FF1801;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="https://cdn.discordapp.com/attachments/1211414447181139999/1211839817172914196/FV_F1_trans.png?ex=67636fc7&is=67621e47&hm=206c049455b56383597ec4c12c1180e552f1a441f8c4e62f4636f3e6d470d29e&" alt="FV Logo">
+                </div>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Calendar.html">Calendar</a></li>
+                    <li><a href="Standings.html">Standings</a></li>
+                    <li><a href="History.html">History</a></li>
+                    <li><a href="Social_media.html">Social Media</a></li>
+                    <li><a href="Memes.html">Server Memes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to the FV Website</h1>
+            <p>Website in Progress</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2>Latest News</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://cdn.discordapp.com/attachments/1095976023541153822/1317538035046420650/image.png?ex=676300ea&is=6761af6a&hm=6302e2bc935bdd24db2be52a4f2aa6d2e0fef9c80756b0ed27be4214bbf7ba18&" alt="News 1">>
+                    <div class="card-content">
+                        <h3>Next Race</h3>
+                        <p>Suzuka</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://cdn.discordapp.com/attachments/1095976023541153822/1313247811629748354/mercedes_poster_png.png?ex=67633755&is=6761e5d5&hm=41681c037b3ec254ea55fce8df7ad5469d8bc0ca210e814d4e5390ea7aedc583&" alt="News 2">
+                    <div class="card-content">
+                        <h3>Driver of the Day</h3>
+                        <p>Vote your Driver</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://cdn.discordapp.com/attachments/1095976023541153822/1314315362778484826/image.png?ex=67632511&is=6761d391&hm=505a24c6a4ef366ef14ec49752c89bebda66ca8b6325ce0d15b59fc1f4eb18af&" alt="News 3">
+                    <div class="card-content">
+                        <h3>Team Talk</h3>
+                        <p>Server Yap</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Join The Discord | <a href="#">https://discord.gg/formulav</a></p>
+        </div>
+    </footer>
+</body>
+</html>
