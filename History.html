@@ -1,190 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta information and title for the page -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FV Website</title>
+    
+    <!-- Link to external font (Roboto) -->
     <link href="https://example.com:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS for styling -->
     <style>
+        /* Basic body styling */
         body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #1E1E1E;
-            color: white;
+            margin: 0; /* Remove default margin */
+            font-family: 'Roboto', sans-serif; /* Set the font family */
+            background-color: #1E1E1E; /* Dark background color */
+            color: white; /* Text color is white */
         }
 
+        /* Header styles */
         header {
-            background-color: #FF1801;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            background-color: #FF1801; /* Red background for the header */
+            padding: 20px 0; /* Padding for top and bottom */
+            position: sticky; /* Make the header sticky */
+            top: 0; /* Stick to the top of the page */
+            z-index: 1000; /* Ensure the header is on top of other content */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for 3D effect */
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        /* Logo styles */
         .logo {
-            display: flex;
-            align-items: center;
+            display: flex; /* Flexbox for centering items */
+            align-items: center; /* Vertically center the logo */
         }
 
+        /* Logo image styling */
         .logo img {
-            width: 150px;
+            width: 150px; /* Set fixed width for the logo */
         }
 
+        /* Navigation styles */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; /* Flexbox for layout */
+            justify-content: space-between; /* Space between logo and nav items */
+            align-items: center; /* Vertically center nav items */
         }
 
+        /* Navigation list styling */
         nav ul {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            display: flex; /* Make the list a horizontal layout */
+            list-style: none; /* Remove default list styling */
+            padding: 0; /* Remove padding */
+            margin: 0; /* Remove margin */
         }
 
+        /* Navigation list items */
         nav ul li {
-            margin: 0 15px;
+            margin: 0 15px; /* Add space between the items */
         }
 
+        /* Links in the navigation */
         nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
+            color: white; /* White text color for links */
+            text-decoration: none; /* Remove underline from links */
+            font-weight: 700; /* Make the link text bold */
         }
 
+        /* Hover effect for links */
         nav ul li a:hover {
-            text-decoration: underline;
+            text-decoration: underline; /* Underline on hover */
         }
 
+        /* Hero section styling */
         .hero {
-            background-image: url('Just blank');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
+            background-image: url('Just blank'); /* Placeholder background image */
+            background-size: cover; /* Cover the entire area with the background */
+            background-position: center; /* Center the background image */
+            height: 400px; /* Set fixed height */
+            display: flex; /* Flexbox for centering content */
+            justify-content: center; /* Horizontally center content */
+            align-items: center; /* Vertically center content */
+            text-align: center; /* Center the text */
+            color: white; /* White text color */
         }
 
+        /* Hero title styling */
         .hero h1 {
-            font-size: 3rem;
-            margin: 0;
+            font-size: 3rem; /* Large font size for the heading */
+            margin: 0; /* Remove default margin */
         }
 
+        /* Hero paragraph styling */
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.2rem; /* Slightly smaller font for the paragraph */
         }
 
-        section {
-            padding: 40px 0;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: #2C2C2C;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .card img {
-            width: 100%;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            margin: 0 0 10px;
-        }
-
-        .card-content p {
-            margin: 0;
-            color: #ccc;
-        }
-
+        /* Footer styling */
         footer {
-            background-color: #121212;
-            padding: 20px 0;
-            text-align: center;
-            color: #ccc;
+            background-color: #121212; /* Dark footer background */
+            padding: 20px 0; /* Padding for top and bottom */
+            text-align: center; /* Center align text */
+            color: #ccc; /* Light gray text color */
         }
 
+        /* Footer links styling */
         footer a {
-            color: #FF1801;
-            text-decoration: none;
+            color: #FF1801; /* Red color for links */
+            text-decoration: none; /* Remove underline from footer links */
         }
 
+        /* Hover effect for footer links */
         footer a:hover {
-            text-decoration: underline;
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Filter container for filtering and sorting options */
+        .filter-container {
+            margin: 20px; /* Add margin around the container */
+            display: flex; /* Use flexbox layout */
+            justify-content: space-between; /* Space out filter and sort options */
+            align-items: center; /* Center align the items vertically */
+        }
+
+        /* Styling for select dropdown and button */
+        select, button {
+            padding: 10px; /* Add padding inside the elements */
+            font-size: 16px; /* Set font size */
+            margin-right: 15px; /* Add space between select and button */
+        }
+
+        /* Button styling */
+        button {
+            cursor: pointer; /* Change cursor to pointer on hover */
+            background-color: #444; /* Dark background for button */
+            color: white; /* White text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners for the button */
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+        }
+
+        /* Hover effect for buttons */
+        button:hover {
+            background-color: #555; /* Darken button background on hover */
+        }
+
+        /* Table styling */
+        table {
+            width: 100%; /* Make the table take up the full width */
+            border-collapse: collapse; /* Remove gaps between table cells */
+            margin-top: 20px; /* Add margin on top of the table */
+        }
+
+        th, td {
+            text-align: left; /* Align text to the left */
+            padding: 12px 15px; /* Padding inside table cells */
+            border-bottom: 1px solid #ddd; /* Add a light border at the bottom */
+        }
+
+        /* Header cell styling */
+        th {
+            background-color: #333; /* Dark background for header */
+            color: white; /* White text color */
+            text-align: center; /* Center align header text */
+        }
+
+        /* Zebra striping for rows (even rows) */
+        tr:nth-child(even) {
+            background-color: #444; /* Dark background for even rows */
+        }
+
+        /* Hover effect for rows */
+        tr:hover {
+            background-color: #e9e9e9; /* Change background on hover */
+        }
+
+        /* Column selection container styling */
+        .column-selection {
+            margin-top: 20px; /* Add margin above the selection */
+            display: flex; /* Flexbox layout */
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            justify-content: flex-start; /* Align items to the left */
+        }
+
+        /* Column selection label styling */
+        .column-selection label {
+            margin-right: 15px; /* Add space between labels */
         }
     </style>
 </head>
+
 <body>
+    <!-- Header section -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <img src="https://cdn.discordapp.com/attachments/1211414447181139999/1211839817172914196/FV_F1_trans.png?ex=67636fc7&is=67621e47&hm=206c049455b56383597ec4c12c1180e552f1a441f8c4e62f4636f3e6d470d29e&" alt="FV Logo">
-                </div>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Calendar.html">Calendar</a></li>
-                    <li><a href="Standings.html">Standings</a></li>
-                    <li><a href="History.html">History</a></li>
-                    <li><a href="Social_Media.html">Social Media</a></li>
-                    <li><a href="Memes.html">Server Memes</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">
+                <!-- Logo image -->
+                <img src="https://cdn.discordapp.com/attachments/1211414447181139999/1211839817172914196/FV_F1_trans.png" alt="FV Logo">
+            </div>
+            <ul>
+                <!-- Navigation links -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Calendar.html">Calendar</a></li>
+                <li><a href="Standings.html">Standings</a></li>
+                <li><a href="History.html">History</a></li>
+                <li><a href="Social_Media.html">Social Media</a></li>
+                <li><a href="Memes.html">Server Memes</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Hero section -->
     <div class="hero">
-        <div class="container">
-            <h1>Welcome to the FV Calendar</h1>
-            <p>Website in Progress</p>
+        <h1>Welcome to the History of FV</h1>
+    </div>
+
+    <!-- Filter and sort options -->
+    <div class="filter-container">
+        <div>
+            <label for="Season-filter">Filter by Season:</label>
+            <select id="Season-filter">
+                <option value="">All</option>
+                <option value="1">Season 1</option>
+                <option value="2">Season 2</option>
+                <option value="3">Season 3</option>
+                <option value="4">Season 4</option>
+                <option value="5">Season 5</option>
+                <option value="6">Season 6</option>
+                <option value="7">Season 7</option>
+                <option value="8">Season 8</option>
+                <option value="9">Season 9</option>
+                <option value="10">Season 10</option>
+                <option value="11">Season 11</option>
+                <option value="12">Season 12</option>
+                <option value="13">Season 13</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="League-filter">Filter by League:</label>
+            <select id="League-filter">
+                <option value="">All</option>
+                <option value="F1">F1</option>
+                <option value="F2">F2</option>
+                <option value="F3">F3</option>
+                <option value="DUNE">Dune</option>
+                <option value="INDY">Indy</option>
+                <option value="NASCAR">Nascar</option>
+                <option value="Variety">Variety</option>
+            </select>
+        </div>
+
+
+        <div>
+            <button id="sort-btnRR">Sort by Race Result</button>
+            <button id="sort-btnRN">Sort by Race Number</button>  
+            <button id="sort-btnS">Sort by Season Number</button>
+            <button id="sort-btnQR">Sort by Quali Result</button>                                
         </div>
     </div>
 
+    <!-- Column selection -->
+    <div class="column-selection">
+        <h3>Select Columns to Display:</h3>
+        <label><input type="checkbox" class="column-checkbox" data-column="Season" checked>Season</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="League" checked>League</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceNumber" checked>Race Number</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="TrackName" unchecked>Track Name</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="Driver" checked>Driver</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="Car" unchecked>Car</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiResult" checked>Quali Result</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiPoint" unchecked>Quali Point</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiLap" unchecked>Quali Lap</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiFlap" unchecked>Quali Flap</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiPP" unchecked>Quali PP</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiRep" unchecked>Quali Rep</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiLW" unchecked>Quali LW</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiCost" unchecked>Quali Cost</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="QualiTeam" unchecked>Quali Team</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintResult" unchecked>Sprint Result</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintPoint" unchecked>Sprint Point</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintLap" unchecked>Sprint Lap</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintFlap" unchecked>Sprint Flap</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintPP" unchecked>Sprint PP</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintRep" unchecked>Sprint Rep</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintLW" unchecked>Sprint LW</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintCost" unchecked>Sprint Cost</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="SprintTeam" unchecked>Sprint Team</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceResult" checked>Race Result</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RacePoint" checked>Race Point</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceLap" unchecked>Race Lap</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceFlap" unchecked>Race Flap</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RacePP" unchecked>Race PP</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceRep" unchecked>Race Rep</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceLW" unchecked>Race LW</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceCost" unchecked>Race Cost</label>
+        <label><input type="checkbox" class="column-checkbox" data-column="RaceTeam" checked>Race Team</label>
+    </div>
 
-    <section>
-        <div class="container">
-            <h2>Latest News</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>History</h3>
-                    <p>Pending</p>
-                    <img src="https://cdn.discordapp.com/attachments/843888135703494717/1315878875066011728/image.png?ex=6764e0b3&is=67638f33&hm=82def849d8613559c4bd5b1f2f72c821e70b4bdfbe5459166f9195f370384c40&" alt="History">
-                    <div class="card-content">
-                    </div>
-                </div>
 
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Table to display race data -->
+    <table id="race-table">
+        <thead>
+            <tr>
+                <!-- Table headers for each data column -->
+                <th data-column="Season">Season</th>
+                <th data-column="League">League</th>
+                <th data-column="RaceNumber">Race Number</th>
+                <th data-column="TrackName">Track Name</th>
+                <th data-column="Driver">Driver</th>
+                <th data-column="Car">Car</th>
+                <th data-column="QualiResult">Quali Result</th>
+                <th data-column="QualiPoint">Quali Point</th>
+                <th data-column="QualiLap">Quali Lap</th>
+                <th data-column="QualiFlap">Quali Flap</th>
+                <th data-column="QualiPP">Quali PP</th>
+                <th data-column="QualiRep">Quali Rep</th>
+                <th data-column="QualiLW">Quali LW</th>
+                <th data-column="QualiCost">Quali Cost</th>
+                <th data-column="QualiTeam">Quali Team</th>
+                <th data-column="SprintResult">Sprint Result</th>
+                <th data-column="SprintPoint">Sprint Point</th>
+                <th data-column="SprintLap">Sprint Lap</th>
+                <th data-column="SprintFlap">Sprint Flap</th>
+                <th data-column="SprintPP">Sprint PP</th>
+                <th data-column="SprintRep">Sprint Rep</th>
+                <th data-column="SprintLW">Sprint LW</th>
+                <th data-column="SprintCost">Sprint Cost</th>
+                <th data-column="SprintTeam">Sprint Team</th>
+                <th data-column="RaceResult">Race Result</th>
+                <th data-column="RacePoint">Race Point</th>
+                <th data-column="RaceLap">Race Lap</th>
+                <th data-column="RaceFlap">Race Flap</th>
+                <th data-column="RacePP">Race PP</th>
+                <th data-column="RaceRep">Race Rep</th>
+                <th data-column="RaceLW">Race LW</th>
+                <th data-column="RaceCost">Race Cost</th>
+                <th data-column="RaceTeam">Race Team</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Table rows will be dynamically added here -->
+        </tbody>
+    </table>
 
-
+    <!-- Footer section -->
     <footer>
-        <div class="container">
-            <p>&copy; Join The Discord | <a href="#">https://discord.gg/formulav</a></p>
-        </div>
+        <p>&copy; Join The Discord | <a href="#">https://discord.gg/formulav</a></p>
     </footer>
+
+    <!-- JavaScript to handle filtering, sorting, and rendering -->
+    <script>
+        // Race data array
+        const raceData = [
+            { Season: 8, League: 'DUNE', RaceNumber: 3, TrackName: 'Atacama', Driver: 'iRazze', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 1, SprintPoint: 16, SprintLap: 1203.8981, SprintFlap: 109.6191, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 28, SprintTeam: 'BDR', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 11, TrackName: 'Boulder', Driver: 'GoofyPepper', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 5, SprintPoint: 6, SprintLap: 1497.5145, SprintFlap: 770.0005, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 13, SprintTeam: 'WM', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 1, TrackName: 'Dune Park', Driver: 'snipez', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 13, SprintPoint: null, SprintLap: 'DSC', SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 2, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 1, TrackName: 'Dune Park', Driver: 'robit', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 14, SprintPoint: null, SprintLap: 'DSC', SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 2, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 7, TrackName: 'Grapeseed', Driver: 'Spike', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 1, SprintPoint: 15, SprintLap: 35.0001, SprintFlap: 54.4041, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 28, SprintTeam: 'AA', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 7, TrackName: 'Grapeseed', Driver: 'Acid_Ibis', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 6, SprintPoint: 5, SprintLap: 36.0006, SprintFlap: 54.0326, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 11, SprintTeam: 'BDR', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 7, TrackName: 'Grapeseed', Driver: 'WestGaming', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 4, SprintPoint: 8, SprintLap: 35.0004, SprintFlap: 54.6744, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 15, SprintTeam: 'BDR', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 7, TrackName: 'Grapeseed', Driver: 'AMMOkray', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 5, SprintPoint: 6, SprintLap: 35.0005, SprintFlap: 53.9975, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 13, SprintTeam: 'WM', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 7, TrackName: 'Grapeseed', Driver: 'Tyler', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 3, SprintPoint: 10, SprintLap: 35.0003, SprintFlap: 58.4093, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 18, SprintTeam: 'WM', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 7, TrackName: 'Grapeseed', Driver: 'Versat1led', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 7, SprintPoint: 5, SprintLap: 36.0007, SprintFlap: 53.2977, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 9, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 7, TrackName: 'Grapeseed', Driver: 'Snowee', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 2, SprintPoint: 12, SprintLap: 35.0002, SprintFlap: 53.7142, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 21, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 5, TrackName: 'Joe Moeder', Driver: 'Versat1led ', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 6, SprintPoint: 5, SprintLap: 1052.0006, SprintFlap: 35.3466, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 11, SprintTeam: 'AA', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 5, TrackName: 'Joe Moeder', Driver: 'Snowee', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 5, SprintPoint: 6, SprintLap: 1051.0005, SprintFlap: 36.1205, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 13, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 4, TrackName: 'Synthetic', Driver: 'ZooM', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 8, SprintPoint: 3, SprintLap: 1172.0008, SprintFlap: 97.0008, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 7, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 2, TrackName: 'Tour', Driver: 'Acer', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 10, SprintPoint: 1, SprintLap: 'DSC', SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 4, SprintTeam: 'MS', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'DUNE', RaceNumber: 2, TrackName: 'Tour', Driver: 'GoofyPepper', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 3, SprintPoint: 10, SprintLap: 1470.0603, SprintFlap: 18.0003, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 18, SprintTeam: 'WM', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 7, League: 'F1', RaceNumber: 8, TrackName: 'Brazil', Driver: 'CeoSigma', Car: null, QualiResult: 14, QualiPoint: null, QualiLap: 71.2725, QualiFlap: 71.2725, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 2, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'F1', RaceNumber: 13, TrackName: 'Diamond Casino', Driver: 'Nekay', Car: null, QualiResult: 9, QualiPoint: null, QualiLap: 74.1587, QualiFlap: 74.1587, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 5, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'F1', RaceNumber: 13, TrackName: 'Diamond Casino', Driver: 'Andromeda', Car: null, QualiResult: 10, QualiPoint: null, QualiLap: 75.9691, QualiFlap: 75.9691, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 4, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'F1', RaceNumber: 13, TrackName: 'Diamond Casino', Driver: 'snakeZrx', Car: null, QualiResult: 11, QualiPoint: null, QualiLap: 76.6718, QualiFlap: 76.6718, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 2, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 9, League: 'F1', RaceNumber: 8, TrackName: 'LSIA', Driver: 'BrokeSniper', Car: null, QualiResult: 7, QualiPoint: null, QualiLap: 99.0007, QualiFlap: 99.0007, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 7, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'F1', RaceNumber: 11, TrackName: 'Silverstone', Driver: 'ItzTeodor', Car: null, QualiResult: 9, QualiPoint: null, QualiLap: 59.8485, QualiFlap: 59.8485, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 5, QualiTeam: '(blank)', SprintResult: 10, SprintPoint: 1, SprintLap: 'DNF', SprintFlap: 61.266, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 4, SprintTeam: '(blank)', RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 11, League: 'F1', RaceNumber: 2, TrackName: 'Suzuka', Driver: 'fmarshall', Car: null, QualiResult: 14, QualiPoint: null, QualiLap: 61.2129, QualiFlap: 61.2129, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 2, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 12, League: 'F2', RaceNumber: 5, TrackName: 'Palomino Bay', Driver: 'ReiLegend', Car: null, QualiResult: 12, QualiPoint: null, QualiLap: 80.2466, QualiFlap: 80.2466, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 2, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: '(blank)', RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'INDY', RaceNumber: 6, TrackName: 'Bolingbroke Spdwy', Driver: 'Skittles', Car: null, QualiResult: 2, QualiPoint: null, QualiLap: 19.7262, QualiFlap: 19.7262, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: 12, QualiTeam: '(blank)', SprintResult: null, SprintPoint: null, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: null, SprintTeam: null, RaceResult: 7, RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'NASCAR', RaceNumber: 7, TrackName: 'BLK Tri-Oval', Driver: 'WestGaming', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 8, SprintPoint: 3, SprintLap: 'DSQ', SprintFlap: 37.0008, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 7, SprintTeam: null, RaceResult: 7, RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'NASCAR', RaceNumber: 1, TrackName: 'Bristol', Driver: 'Tyler', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 2, SprintPoint: 13, SprintLap: null, SprintFlap: null, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 21, SprintTeam: null, RaceResult: 5, RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'NASCAR', RaceNumber: 2, TrackName: 'Deltona', Driver: 'MrTino', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 7, SprintPoint: 4, SprintLap: 'DNF', SprintFlap: 58.0007, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 9, SprintTeam: null, RaceResult: 4, RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'NASCAR', RaceNumber: 5, TrackName: 'Indianapolis', Driver: '3dWrench', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 1, SprintPoint: 16, SprintLap: 970.0001, SprintFlap: 43.0001, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 28, SprintTeam: null, RaceResult: 7, RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+            { Season: 8, League: 'NASCAR', RaceNumber: 12, TrackName: 'Sprunk Speedway', Driver: '3dWrench', Car: null, QualiResult: null, QualiPoint: null, QualiLap: null, QualiFlap: null, QualiPP: null, QualiRep: null, QualiLW: null, QualiCost: null, QualiTeam: null, SprintResult: 4, SprintPoint: 9, SprintLap: 914.0004, SprintFlap: 33.0004, SprintPP: null, SprintRep: null, SprintLW: null, SprintCost: 15, SprintTeam: null, RaceResult: 9, RacePoint: null, RaceLap: 'DNS', RaceFlap: null, RacePP: null, RaceRep: null, RaceLW: null, RaceCost: null, RaceTeam: '(blank)' },
+
+        ];
+
+        // Initialize filtered data with all race data
+        let filteredData = [...raceData];
+
+        // Function to render the table based on provided data
+        function renderTable(data) {
+            const tableBody = document.getElementById('table-body');
+            tableBody.innerHTML = ''; // Clear the table body first
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                Object.keys(row).forEach(key => {
+                    const columnCell = document.querySelector(`th[data-column="${key}"]`);
+                    if (columnCell && columnCell.style.display !== 'none') {
+                        const td = document.createElement('td');
+                        td.textContent = row[key];
+                        tr.appendChild(td);
+                    }
+                });
+                tableBody.appendChild(tr);
+            });
+        }
+
+        // Function to filter data based on selected Season
+        function filterbySeason() {
+            const SeasonFilter = document.getElementById('Season-filter').value;
+            filteredData = raceData;
+
+            if (SeasonFilter) {
+                filteredData = filteredData.filter(row => row.Season.toString() === SeasonFilter);
+            }
+
+            renderTable(filteredData);
+        }
+        // Function to filter data based on selected League
+        function filterbyLeague() {
+            const LeagueFilter = document.getElementById('League-filter').value;
+            filteredData = raceData;
+
+            if (LeagueFilter) {
+                filteredData = filteredData.filter(row => row.League.toString() === LeagueFilter);
+            }
+
+            renderTable(filteredData);
+        }
+
+
+
+
+// Function to sort the table by race result
+function sortbyRaceResult() {
+    filteredData.sort((a, b) => {
+        const aValue = a.RaceResult;
+        const bValue = b.RaceResult;
+
+        // Check if the values are numbers
+        const aIsNumber = !isNaN(aValue);
+        const bIsNumber = !isNaN(bValue);
+
+        // Place non-numeric values below numeric values
+        if (aIsNumber && !bIsNumber) return -1;
+        if (!aIsNumber && bIsNumber) return 1;
+
+        // If both are numbers or both are not numbers, compare them normally
+        if (aIsNumber && bIsNumber) {
+            return aValue - bValue;
+        }
+
+        // For non-numeric values, compare lexicographically as fallback
+        return String(aValue).localeCompare(String(bValue));
+    });
+
+    renderTable(filteredData);
+}
+function sortbyRaceNumber() {
+    filteredData.sort((a, b) => {
+        const aValue = a.RaceNumber;
+        const bValue = b.RaceNumber;
+
+        // Check if the values are numbers
+        const aIsNumber = !isNaN(aValue);
+        const bIsNumber = !isNaN(bValue);
+
+        // Place non-numeric values below numeric values
+        if (aIsNumber && !bIsNumber) return -1;
+        if (!aIsNumber && bIsNumber) return 1;
+
+        // If both are numbers or both are not numbers, compare them normally
+        if (aIsNumber && bIsNumber) {
+            return aValue - bValue;
+        }
+
+        // For non-numeric values, compare lexicographically as fallback
+        return String(aValue).localeCompare(String(bValue));
+    });
+
+    renderTable(filteredData);
+}
+
+function sortbySeason() {
+    filteredData.sort((a, b) => {
+        const aValue = a.Season;
+        const bValue = b.Season;
+
+        // Check if the values are numbers
+        const aIsNumber = !isNaN(aValue);
+        const bIsNumber = !isNaN(bValue);
+
+        // Place non-numeric values below numeric values
+        if (aIsNumber && !bIsNumber) return -1;
+        if (!aIsNumber && bIsNumber) return 1;
+
+        // If both are numbers or both are not numbers, compare them normally
+        if (aIsNumber && bIsNumber) {
+            return aValue - bValue;
+        }
+
+        // For non-numeric values, compare lexicographically as fallback
+        return String(aValue).localeCompare(String(bValue));
+    });
+
+    renderTable(filteredData);
+}
+
+function sortbyQualiResult() {
+    filteredData.sort((a, b) => {
+        const aValue = a.QualiResult;
+        const bValue = b.QualiResult;
+
+        // Check if the values are numbers
+        const aIsNumber = !isNaN(aValue);
+        const bIsNumber = !isNaN(bValue);
+
+        // Place non-numeric values below numeric values
+        if (aIsNumber && !bIsNumber) return -1;
+        if (!aIsNumber && bIsNumber) return 1;
+
+        // If both are numbers or both are not numbers, compare them normally
+        if (aIsNumber && bIsNumber) {
+            return aValue - bValue;
+        }
+
+        // For non-numeric values, compare lexicographically as fallback
+        return String(aValue).localeCompare(String(bValue));
+    });
+
+    renderTable(filteredData);
+}
+
+        // Function to update the visibility of columns based on checkbox selection
+        function updateColumnVisibility() {
+            const checkboxes = document.querySelectorAll('.column-checkbox');
+            checkboxes.forEach(checkbox => {
+                const column = document.querySelector(`th[data-column="${checkbox.dataset.column}"]`);
+                const cells = document.querySelectorAll(`td:nth-child(${Array.from(column.parentElement.children).indexOf(column) + 1})`);
+
+                if (checkbox.checked) {
+                    column.style.display = '';
+                    cells.forEach(cell => {
+                        cell.style.display = '';
+                    });
+                } else {
+                    column.style.display = 'none';
+                    cells.forEach(cell => {
+                        cell.style.display = 'none';
+                    });
+                }
+            });
+        }
+
+        // Event listener for Season filter change
+        document.getElementById('Season-filter').addEventListener('change', () => {
+            filterbyLeague();
+            filterbySeason();
+        });
+
+            // Event listener for League filter change
+            document.getElementById('League-filter').addEventListener('change', () => {
+                filterbySeason();
+                filterbyLeague();
+        });    
+
+        // Event listener for sorting button click
+        document.getElementById('sort-btnRR').addEventListener('click', sortbyRaceResult);
+        document.getElementById('sort-btnRN').addEventListener('click', sortbyRaceNumber);
+        document.getElementById('sort-btnS').addEventListener('click', sortbySeason);
+        document.getElementById('sort-btnQR').addEventListener('click', sortbyQualiResult);       
+
+        // Event listener for column visibility change
+        document.querySelectorAll('.column-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', updateColumnVisibility);
+        });
+
+        // Initial render of the table with all race data
+        renderTable(raceData);
+    </script>
 </body>
 </html>
